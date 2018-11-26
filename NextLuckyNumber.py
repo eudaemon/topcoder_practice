@@ -45,7 +45,6 @@ class NextLuckyNumber:
                 break
         return res
 
-
 nln = NextLuckyNumber()
 print str(nln.getTicket(333, 7, 0))
 
