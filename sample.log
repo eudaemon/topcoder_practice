@@ -1,0 +1,8 @@
+0100 funcA in
+0200 funcB in
+0300 funcC in
+0400 funcB out
+0450 funcD in
+0500 funcC out
+0600 funcA out
+1000 funcD out
