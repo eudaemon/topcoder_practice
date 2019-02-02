@@ -3,6 +3,7 @@
 #include <string>
 #include <string.h>
 #include <cstdlib>
+#include <cassert>
 
 using namespace std;
 
@@ -27,7 +28,18 @@ int main () {
         pch = strtok(NULL, DELIMIT);
         string direction = pch;
         pch = strtok(NULL, DELIMIT);
-        cout << time << "," << fname << "," << direction << endl;
+        if (direction == "in")
+        {
+            cout << "< " << fname << "," << time << endl;
+        }
+        else if (direction == "out")
+        {
+            cout << "> " << fname << "," << time << endl;
+        }
+        else
+        {
+            assert(false);
+        }
     }
     myfile.close();
     return 0;
