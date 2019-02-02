@@ -68,8 +68,12 @@ int main () {
     myfile.close();
 
     for (itr = umap.begin(); itr != umap.end(); itr++) 
-    { 
+    {
         cout << itr->first << ":" << itr->second.second << endl; 
+        if (itr->second.first >= 0)
+        {
+            cout << "\t start time is not reset: " << itr->second.first << endl;
+        }
     }     
     return 0;
 }

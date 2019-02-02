@@ -6,3 +6,15 @@
 0500 funcC out
 0600 funcA out
 1000 funcD out
+1050 funcA in
+1100 funcD in
+1130 funcE in
+1200 funcA out
+1310 funcB in
+1360 funcD out
+1380 funcC in
+1400 funcE out
+1430 funcB out
+1500 funcB in
+1700 funcB out
+1880 funcC out
