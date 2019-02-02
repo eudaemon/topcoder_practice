@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <string.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -20,12 +21,13 @@ int main () {
     {
         char * pch;
         pch = strtok((char*)line.c_str(), DELIMIT);
-        while (pch != NULL)
-        {
-            cout << pch << ",";
-            pch = strtok(NULL, DELIMIT);
-        }
-        cout << endl;
+        int time = atoi(pch);
+        pch = strtok(NULL, DELIMIT);
+        string fname = pch;
+        pch = strtok(NULL, DELIMIT);
+        string direction = pch;
+        pch = strtok(NULL, DELIMIT);
+        cout << time << "," << fname << "," << direction << endl;
     }
     myfile.close();
     return 0;
