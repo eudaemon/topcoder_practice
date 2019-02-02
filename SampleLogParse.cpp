@@ -38,7 +38,7 @@ int main () {
         pch = strtok(NULL, DELIMIT);
         if (direction == "in")
         {
-            cout << "< " << fname << "," << time << endl;
+            // cout << "< " << fname << "," << time << endl;
             itr = umap.find(fname);
             if (itr == umap.end())
             {
@@ -52,7 +52,7 @@ int main () {
         }
         else if (direction == "out")
         {
-            cout << "> " << fname << "," << time << endl;
+            // cout << "> " << fname << "," << time << endl;
             itr = umap.find(fname);
             assert(itr != umap.end());
             int startT = itr->second.first;
@@ -69,8 +69,7 @@ int main () {
 
     for (itr = umap.begin(); itr != umap.end(); itr++) 
     { 
-        cout << itr->first << ":" << itr->second->second << endl; 
+        cout << itr->first << ":" << itr->second.second << endl; 
     }     
     return 0;
 }
-
