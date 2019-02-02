@@ -66,6 +66,11 @@ int main () {
         }
     }
     myfile.close();
+
+    for (itr = umap.begin(); itr != umap.end(); itr++) 
+    { 
+        cout << itr->first << ":" << itr->second->second << endl; 
+    }     
     return 0;
 }
 
