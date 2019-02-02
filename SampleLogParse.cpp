@@ -1,7 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <string.h>
+
 using namespace std;
+
+#define DELIMIT " "
 
 int main () {
     string line;
@@ -14,7 +18,14 @@ int main () {
 
     while (getline(myfile,line))
     {
-        cout << line << '\n';
+        char * pch;
+        pch = strtok((char*)line.c_str(), DELIMIT);
+        while (pch != NULL)
+        {
+            cout << pch << ",";
+            pch = strtok(NULL, DELIMIT);
+        }
+        cout << endl;
     }
     myfile.close();
     return 0;
