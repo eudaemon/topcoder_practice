@@ -1,4 +1,7 @@
 // https://www.interviewcake.com/question/python/cake-thief?
+// cake_tuples = [(7, 160), (3, 90), (2, 15)]
+// capacity    = 20
+// answer = 555
 
 #include <vector>
 #include <algorithm>
@@ -48,6 +51,9 @@ int max_duffel_bag_value(tuple_data &cake_tuples, int capacity)
 int main()
 {
     tuple_data cake_tuples;
+    cake_tuples.push_back(make_pair(7, 160));
+    cake_tuples.push_back(make_pair(3, 90));
+    cake_tuples.push_back(make_pair(2, 15));
     int capacity = 20;
     int res = max_duffel_bag_value(cake_tuples, capacity);
 
