@@ -10,8 +10,9 @@
 using namespace std;
 
 typedef vector<pair<int, int> > tuple_data;
+typedef vector<vector<int> > memo_type;
 
-int solve_bag(tuple_data &tuples, int tuple_id, int cap, int** memo)
+int solve_bag(tuple_data &tuples, int tuple_id, int cap, memo_type &memo)
 {
     // cout << "t:" << tuple_id << ",c:" << cap << " called." << endl;
 	if (tuple_id < 0) return 0;
@@ -19,7 +20,10 @@ int solve_bag(tuple_data &tuples, int tuple_id, int cap, int** memo)
 
 	int memo_val = memo[tuple_id][cap];
 	if (memo_val >= 0) 
+    {
+        // cout << "memo[" << tuple_id << "][" << cap << "] = " << memo_val << endl;
 		return memo_val;
+    }
 
 	int weight = tuples.at(tuple_id).first;
 	int value = tuples.at(tuple_id).second;
@@ -34,7 +38,7 @@ int solve_bag(tuple_data &tuples, int tuple_id, int cap, int** memo)
 	return max_val;
 }
 
-void print_memo(int **memo, int tuple_len, int capacity)
+void print_memo(const memo_type &memo, int tuple_len, int capacity)
 {
 	for (int i = 0; i < tuple_len; i++)
     {
@@ -53,19 +57,9 @@ int max_duffel_bag_value(tuple_data &cake_tuples, int capacity)
                     << cake_tuples.at(i).second << ">" << endl;
     }
 
-	int **memo = new int*[tuple_len];
-	for (int i = 0; i < tuple_len; i++)
-    {
-        memo[i] = new int[capacity+1];
-		for (int j = 0; j < capacity+1; j++)
-			memo[i][j] = -1;
-    }
-
+    vector<vector<int> > memo(tuple_len, vector<int>(capacity+1, -1));
+    // print_memo(memo, tuple_len, capacity);
 	return solve_bag(cake_tuples, tuple_len-1, capacity, memo);
-
-    for (int i = 0; i < tuple_len; i++)
-        delete[] memo[i];
-    delete[] memo;
 }
 
 #define TEST02
