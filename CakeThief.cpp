@@ -12,6 +12,15 @@ using namespace std;
 typedef vector<pair<int, int> > tuple_data;
 typedef vector<vector<int> > memo_type;
 
+void print_memo(const memo_type &memo, int tuple_len, int capacity)
+{
+	for (int i = 0; i < tuple_len; i++)
+    {
+		for (int j = 0; j < capacity; j++)
+            cout << "memo[" << i << "][" << j << "] = " << memo[i][j] << endl;
+    }
+}
+
 int solve_bag(tuple_data &tuples, int tuple_id, int cap, memo_type &memo)
 {
     // cout << "t:" << tuple_id << ",c:" << cap << " called." << endl;
@@ -36,15 +45,6 @@ int solve_bag(tuple_data &tuples, int tuple_id, int cap, memo_type &memo)
     // cout << "t:" << tuple_id << ",c:" << cap << " = " << max_val << endl;
 	memo[tuple_id][cap] = max_val;
 	return max_val;
-}
-
-void print_memo(const memo_type &memo, int tuple_len, int capacity)
-{
-	for (int i = 0; i < tuple_len; i++)
-    {
-		for (int j = 0; j < capacity; j++)
-            cout << "memo[" << i << "][" << j << "] = " << memo[i][j] << endl;
-    }
 }
 
 int max_duffel_bag_value(tuple_data &cake_tuples, int capacity)
